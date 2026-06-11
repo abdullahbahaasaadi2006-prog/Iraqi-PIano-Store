@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Your Sound | Iraq's Premier Piano & Guitar Boutique</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Spline 3D Viewer -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.51/build/spline-viewer.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animated Shapes -->
+    <div class="bg-shapes">
+        <div class="shape"><i class="fa-solid fa-music"></i></div>
+        <div class="shape"><i class="fa-solid fa-guitar"></i></div>
+        <div class="shape"><i class="fa-solid fa-circle"></i></div>
+        <div class="shape"><i class="fa-solid fa-play"></i></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Maestro<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#pianos">Pianos</a></li>
+                <li><a href="#guitars">Guitars</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="nav-search">
+                    <i class="fa-solid fa-search"></i>
+                    <input id="search-input" type="text" placeholder="Search instruments...">
+                </div>
+                <button id="cart-toggle" class="cart-toggle" aria-label="Open cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-badge" class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Elevate Your Sound</h1>
+            <p class="hero-subtitle">Iraq's Premier Piano & Guitar Boutique. Discover world-class instruments curated for the discerning musician.</p>
+            <div class="hero-buttons">
+                <a href="#pianos" class="btn btn-black"><i class="fa-solid fa-music"></i> Shop Pianos</a>
+                <a href="#guitars" class="btn btn-red"><i class="fa-solid fa-guitar"></i> Shop Guitars</a>
+            </div>
+        </div>
+        <div class="hero-3d-container">
+            <img id="hero-img" src="assets/hero_image.png" alt="Hero Instruments" class="hero-image-anim" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <main id="main-content">
+        <section id="pianos" class="container">
+            <div class="section-header">
+                <h2 class="section-title">Premium Pianos</h2>
+                <p>Explore our master-crafted acoustic and digital pianos.</p>
+            </div>
+            <div class="product-grid" id="piano-grid">
+                <!-- Products will be dynamically injected here by app.js -->
+            </div>
+        </section>
+
+        <section id="guitars" class="container" style="padding-top: 4rem; padding-bottom: 6rem;">
+            <div class="section-header">
+                <h2 class="section-title">Elite Guitars</h2>
+                <p>Discover perfection in strings and wood.</p>
+            </div>
+            <div class="product-grid" id="guitar-grid">
+                <!-- Products will be dynamically injected here by app.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal-overlay">
+        <button class="close-modal"><i class="fa-solid fa-times"></i></button>
+        <div class="product-detail-container">
+            <div class="detail-gallery">
+                <img id="modal-img" class="detail-main-img" src="" alt="Product">
+            </div>
+            <div class="detail-info">
+                <span id="modal-category" class="detail-category">Category</span>
+                <h2 id="modal-title" class="detail-title">Product Name</h2>
+                <div id="modal-price" class="detail-price">$0</div>
+                <p id="modal-desc" class="detail-desc">Product description goes here.</p>
+                
+                <div id="modal-specs" class="detail-specs">
+                    <!-- Specs injected here -->
+                </div>
+
+                <div class="detail-actions">
+                    <button id="btn-modal-add-cart" class="btn btn-modal-cart">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart</h3>
+            <button id="cart-close" class="cart-close"><i class="fa-solid fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <div class="cart-empty">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p>Your cart is empty</p>
+                <span>Add some instruments to get started!</span>
+            </div>
+        </div>
+        <div id="cart-footer" class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">$0</span>
+                </div>
+                <div class="cart-summary-row cart-summary-items">
+                    <span>Items</span>
+                    <span id="cart-item-count">0</span>
+                </div>
+                <div class="cart-summary-divider"></div>
+                <div class="cart-summary-row cart-summary-total">
+                    <span>Total</span>
+                    <span id="cart-total-price">$0</span>
+                </div>
+            </div>
+
+            <form id="checkout-form" class="checkout-form">
+                <div class="checkout-form-header">
+                    <i class="fa-solid fa-user-pen"></i>
+                    <span>Delivery Information</span>
+                </div>
+                <div class="form-group">
+                    <label for="customer-name"><i class="fa-solid fa-user"></i> Full Name</label>
+                    <input type="text" id="customer-name" name="name" required placeholder="e.g. Ahmed Al-Rashid" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="customer-phone" name="phone" required placeholder="e.g. 0770 123 4567" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="customer-city"><i class="fa-solid fa-city"></i> City</label>
+                    <input type="text" id="customer-city" name="city" required placeholder="e.g. Baghdad, Erbil, Basra" autocomplete="address-level2">
+                </div>
+                <div class="form-group">
+                    <label for="customer-address"><i class="fa-solid fa-location-dot"></i> Full Address</label>
+                    <textarea id="customer-address" name="address" required placeholder="e.g. Al-Mansour, Street 14, Building 8, Apartment 3"></textarea>
+                </div>
+            </form>
+
+            <div id="cart-error" class="cart-error" style="display:none;">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="cart-error-text">Something went wrong.</span>
+            </div>
+            <button id="cart-checkout" class="btn btn-checkout">
+                <span class="checkout-label">
+                    <i class="fa-solid fa-lock"></i> Secure Checkout
+                </span>
+                <span class="checkout-spinner" style="display:none;">
+                    <svg class="spinner-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="31.4 31.4" /></svg>
+                    Processing…
+                </span>
+            </button>
+            <p class="checkout-note"><i class="fa-brands fa-telegram"></i> You'll complete your order on Telegram</p>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Maestro<span>.</span></h3>
+                <p>The ultimate destination for premium musical instruments in Iraq. Serving musicians with excellence.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Locations</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Mansour District, Baghdad, Iraq</p>
+                <p><i class="fa-solid fa-location-dot"></i> Empire World, Erbil, Kurdistan Region</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> +964 7XX XXX XXXX</p>
+                <p><i class="fa-solid fa-envelope"></i> info@maestro-iraq.com</p>
+                <p><i class="fa-solid fa-clock"></i> Mon - Sat: 10:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Maestro Piano & Guitar Boutique. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
